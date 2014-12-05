@@ -15,6 +15,13 @@
 		879AE4881A309C9200F46E09 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879AE4871A309C9200F46E09 /* Images.xcassets */; };
 		879AE48B1A309C9200F46E09 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 879AE4891A309C9200F46E09 /* LaunchScreen.xib */; };
 		879AE4971A309C9200F46E09 /* TheOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4961A309C9200F46E09 /* TheOneTests.swift */; };
+		879AE4F21A318D3200F46E09 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4EC1A318D3200F46E09 /* Direction.swift */; };
+		879AE4F31A318D3200F46E09 /* AStarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4ED1A318D3200F46E09 /* AStarNode.swift */; };
+		879AE4F41A318D3200F46E09 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4EE1A318D3200F46E09 /* RouteData.swift */; };
+		879AE4F51A318D3200F46E09 /* RouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4EF1A318D3200F46E09 /* RouteManager.swift */; };
+		879AE4F61A318D3200F46E09 /* CostCalcProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */; };
+		879AE4F71A318D3200F46E09 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4F11A318D3200F46E09 /* Extension.swift */; };
+		87A1F16E1A31AA0300C65BD4 /* SimpleCostCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +47,14 @@
 		879AE4901A309C9200F46E09 /* TheOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		879AE4951A309C9200F46E09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		879AE4961A309C9200F46E09 /* TheOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheOneTests.swift; sourceTree = "<group>"; };
+		879AE4EC1A318D3200F46E09 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		879AE4ED1A318D3200F46E09 /* AStarNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStarNode.swift; sourceTree = "<group>"; };
+		879AE4EE1A318D3200F46E09 /* RouteData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
+		879AE4EF1A318D3200F46E09 /* RouteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteManager.swift; sourceTree = "<group>"; };
+		879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCalcProtocal.swift; sourceTree = "<group>"; };
+		879AE4F11A318D3200F46E09 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		87A1F16C1A31A76200C65BD4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCostCalc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +96,7 @@
 		879AE4791A309C9200F46E09 /* TheOne */ = {
 			isa = PBXGroup;
 			children = (
+				879AE4F81A318DA100F46E09 /* PathFinder */,
 				879AE47C1A309C9200F46E09 /* AppDelegate.swift */,
 				879AE47E1A309C9200F46E09 /* GameScene.sks */,
 				879AE4801A309C9200F46E09 /* GameScene.swift */,
@@ -89,6 +105,7 @@
 				879AE4871A309C9200F46E09 /* Images.xcassets */,
 				879AE4891A309C9200F46E09 /* LaunchScreen.xib */,
 				879AE47A1A309C9200F46E09 /* Supporting Files */,
+				87A1F16C1A31A76200C65BD4 /* MyPlayground.playground */,
 			);
 			path = TheOne;
 			sourceTree = "<group>";
@@ -116,6 +133,20 @@
 				879AE4951A309C9200F46E09 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		879AE4F81A318DA100F46E09 /* PathFinder */ = {
+			isa = PBXGroup;
+			children = (
+				879AE4EC1A318D3200F46E09 /* Direction.swift */,
+				879AE4ED1A318D3200F46E09 /* AStarNode.swift */,
+				879AE4EE1A318D3200F46E09 /* RouteData.swift */,
+				879AE4EF1A318D3200F46E09 /* RouteManager.swift */,
+				879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */,
+				879AE4F11A318D3200F46E09 /* Extension.swift */,
+				87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */,
+			);
+			name = PathFinder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +251,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				879AE4811A309C9200F46E09 /* GameScene.swift in Sources */,
+				879AE4F61A318D3200F46E09 /* CostCalcProtocal.swift in Sources */,
 				879AE4831A309C9200F46E09 /* GameViewController.swift in Sources */,
+				87A1F16E1A31AA0300C65BD4 /* SimpleCostCalc.swift in Sources */,
 				879AE47D1A309C9200F46E09 /* AppDelegate.swift in Sources */,
+				879AE4F31A318D3200F46E09 /* AStarNode.swift in Sources */,
+				879AE4F21A318D3200F46E09 /* Direction.swift in Sources */,
+				879AE4F51A318D3200F46E09 /* RouteManager.swift in Sources */,
+				879AE4F41A318D3200F46E09 /* RouteData.swift in Sources */,
+				879AE4F71A318D3200F46E09 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +451,7 @@
 				879AE49C1A309C9200F46E09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		879AE49D1A309C9200F46E09 /* Build configuration list for PBXNativeTarget "TheOneTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +460,7 @@
 				879AE49F1A309C9200F46E09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
