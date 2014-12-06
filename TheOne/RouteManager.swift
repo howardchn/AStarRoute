@@ -88,9 +88,34 @@ public class RouteManager {
                 let newNode = AStarNode(location: nextLocation, previousNode: currentNode, costG: costG, costH: costH)
                 routeData.openedNodes.append(newNode)
             }
-            
         }
-        return nil
+        
+        let currentNodeIndex = indexAt(routeData.openedNodes, item: currentNode)
+        routeData.openedNodes.removeAtIndex(currentNodeIndex)
+        routeData.closedNodes.append(currentNode)
+        
+        let minimumCostNode = getMinimumCostNode(routeData)
+        if minimumCostNode == nil {
+            return nil   
+        }
+        
+        return routeCore(routeData, currentNode: minimumCostNode!)
+    }
+    
+    func getMinimumCostNode(routeData : RouteData) -> AStarNode? {
+        var node : AStarNode? = nil
+        if(routeData.openedNodes.count != 0) {
+            for n in routeData.openedNodes {
+                if node == nil {
+                    node = n
+                }
+                else if node?.costF > n.costF {
+                    node = n
+                }
+            }
+        }
+        
+        return node
     }
     
     func getNodeOnLocation (location:CGPoint, routeData : RouteData) -> AStarNode? {
@@ -109,17 +134,15 @@ public class RouteManager {
         return nil
     }
     
-    func indexAt (items : [Any], item : Any) -> Int {
+    func indexAt (items : [AStarNode], item : AStarNode) -> Int {
         var result = -1
-        
-        for var index = 0; index < 3; index++ {
-//            if items[i] == item {
-//                result = i
-//            }
+        for var index = 0; index < items.count; index++ {
+            if items[index] === item {
+                result = index
+                break
+            }
         }
         
         return result
     }
-    
-    
 }
