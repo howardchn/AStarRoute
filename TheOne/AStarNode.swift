@@ -11,18 +11,18 @@ import SpriteKit
 
 public class AStarNode {
     
-    init(location : CGPoint, previousNode : AStarNode?, costG : Int32, costH : Int32) {
+    init(location : PointInt, previousNode : AStarNode?, costG : Int, costH : Int) {
         self.location = location
         self.previousNode = previousNode
         self.costG = costG
         self.costH = costH
     }
     
-    var location : CGPoint
+    var location : PointInt
     var previousNode : AStarNode?
-    var costG : Int32
-    var costH : Int32
-    var costF : Int32 {
+    var costG : Int
+    var costH : Int
+    var costF : Int {
         get {
             return costG + costH
         }

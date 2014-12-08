@@ -10,15 +10,25 @@ import Foundation
 import SpriteKit
 
 public class RouteData {
-    init (rect : CGRect, destination : CGPoint) {
+    init (rect : RectInt, destination : PointInt) {
         self.rect = rect
         self.destination = destination
         self.openedNodes = [AStarNode]()
         self.closedNodes = [AStarNode]()
+        self.directions = [Direction]()
+        self.directions.append(Direction.North)
+        self.directions.append(Direction.East)
+        self.directions.append(Direction.South)
+        self.directions.append(Direction.West)
+        self.directions.append(Direction.NorthEast)
+        self.directions.append(Direction.SouthEast)
+        self.directions.append(Direction.SouthWest)
+        self.directions.append(Direction.NorthWest)
     }
     
-    var rect : CGRect
-    var destination : CGPoint
+    var rect : RectInt
+    var destination : PointInt
     var closedNodes : [AStarNode]
     var openedNodes : [AStarNode]
+    var directions : [Direction]
 }

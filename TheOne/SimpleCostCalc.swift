@@ -10,25 +10,25 @@ import Foundation
 import SpriteKit
 
 public class SimpleCostCalc : CostCalcProtocal {
-    public func getCostG (currentNode : AStarNode, direction : Direction) -> Int32 {
-        var cost : Int32 = 0
+    public func getCostG (currentNode : AStarNode, direction : Direction) -> Int {
+        var cost : Int = 0
         switch direction {
         case .East, .North, .South, .West:
-            cost += Int32(10)
+            cost += 10
         case .NorthEast, .NorthWest, .SouthEast, .SouthWest:
-            cost += Int32(14)
+            cost += 14
         default:
-            cost += Int32(0)
+            cost += 0
         }
         
-        if(currentNode.previousNode != nil) {
-            cost += Int32(currentNode.previousNode!.costG.value)
-        }
+//        if(currentNode.previousNode != nil) {
+//            cost += Int(currentNode.previousNode!.costG.value)
+//        }
         
         return cost
     }
     
-    public func getCostH (nextNode : CGPoint, destination : CGPoint) -> Int32 {
-        return Int32.max
+    public func getCostH (nextNode : PointInt, destination : PointInt) -> Int {
+        return abs(nextNode.x - destination.x) + abs(nextNode.y - destination.y)
     }
 }

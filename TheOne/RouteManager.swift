@@ -10,12 +10,12 @@ import Foundation
 import SpriteKit
 
 public class RouteManager {
-    public init(column : Int32, row : Int32) {
+    public init(column : Int, row : Int) {
         var matrix = [[Bool]]()
         
-        for var r : Int32 = 0; r < row; r++ {
+        for var r : Int = 0; r <= row; r++ {
             var oneRow = [Bool]()
-            for var c : Int32 = 0; c < column; c++ {
+            for var c : Int = 0; c <= column; c++ {
                 oneRow.append(false)
             }
             
@@ -34,8 +34,8 @@ public class RouteManager {
     public var matrix : [[Bool]]
     public var costCalc : CostCalcProtocal!;
     
-    public func route(start : CGPoint, destination : CGPoint) -> [CGPoint]? {
-        let map = CGRect(x: 0, y: 0, width: matrix[0].count, height: matrix.count)
+    public func route(start : PointInt, destination : PointInt) -> [PointInt]? {
+        let map = RectInt(x: 0, y: 0, width: matrix[0].count, height: matrix.count)
         if(!map.contains(start) || !map.contains(destination)) {
             return nil
         }
@@ -48,24 +48,25 @@ public class RouteManager {
         return routeCore(routeData, currentNode: currentNode)
     }
     
-    func routeCore (routeData : RouteData, currentNode : AStarNode) -> [CGPoint]? {
-        for rawValue in 1...8 {
-            let direction = Direction(rawValue: rawValue)
-            let nextLocation = currentNode.location.getAdjecentPoint(direction!)
+    func routeCore (routeData : RouteData, currentNode : AStarNode) -> [PointInt]? {
+        
+        let start = NSDate()
+        for direction in routeData.directions {
+            let nextLocation = currentNode.location.getAdjecentPoint(direction)
             
             if !routeData.rect.contains(nextLocation) {
                 continue
             }
             
-            if matrix[Int(nextLocation.y)][Int(nextLocation.x)] {
+            if matrix[nextLocation.y][nextLocation.x] {
                 continue
             }
             
-            let costG = costCalc.getCostG(currentNode, direction: direction!)
+            let costG = costCalc.getCostG(currentNode, direction: direction)
             let costH = costCalc.getCostH(nextLocation, destination: routeData.destination)
             
             if costH == 0 {
-                var result = [CGPoint]()
+                var result = [PointInt]()
                 result.append(routeData.destination)
                 result.insert(currentNode.location, atIndex: 0)
                 
@@ -90,15 +91,16 @@ public class RouteManager {
             }
         }
         
+        
         let currentNodeIndex = indexAt(routeData.openedNodes, item: currentNode)
         routeData.openedNodes.removeAtIndex(currentNodeIndex)
         routeData.closedNodes.append(currentNode)
         
+        println(routeData.openedNodes.count)
         let minimumCostNode = getMinimumCostNode(routeData)
         if minimumCostNode == nil {
             return nil   
         }
-        
         return routeCore(routeData, currentNode: minimumCostNode!)
     }
     
@@ -118,15 +120,15 @@ public class RouteManager {
         return node
     }
     
-    func getNodeOnLocation (location:CGPoint, routeData : RouteData) -> AStarNode? {
+    func getNodeOnLocation (location:PointInt, routeData : RouteData) -> AStarNode? {
         for node in routeData.openedNodes {
-            if node.location == location {
+            if node.location.x == location.x && node.location.y == location.y {
                 return node;
             }
         }
         
         for node in routeData.closedNodes {
-            if node.location == location {
+            if node.location.x == location.x && node.location.y == location.y {
                 return node
             }
         }

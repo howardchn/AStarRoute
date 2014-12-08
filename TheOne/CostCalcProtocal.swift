@@ -10,6 +10,6 @@ import Foundation
 import SpriteKit
 
 public protocol CostCalcProtocal {
-    func getCostG (currentNode : AStarNode, direction : Direction) -> Int32
-    func getCostH (nextNode : CGPoint, destination : CGPoint) -> Int32
+    func getCostG (currentNode : AStarNode, direction : Direction) -> Int
+    func getCostH (nextNode : PointInt, destination : PointInt) -> Int
 }

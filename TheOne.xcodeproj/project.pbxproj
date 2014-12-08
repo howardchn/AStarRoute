@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8704EB411A359EAF009EEA1C /* Geometries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704EB401A359EAF009EEA1C /* Geometries.swift */; };
 		879AE47D1A309C9200F46E09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE47C1A309C9200F46E09 /* AppDelegate.swift */; };
 		879AE47F1A309C9200F46E09 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 879AE47E1A309C9200F46E09 /* GameScene.sks */; };
 		879AE4811A309C9200F46E09 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4801A309C9200F46E09 /* GameScene.swift */; };
@@ -20,7 +21,6 @@
 		879AE4F41A318D3200F46E09 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4EE1A318D3200F46E09 /* RouteData.swift */; };
 		879AE4F51A318D3200F46E09 /* RouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4EF1A318D3200F46E09 /* RouteManager.swift */; };
 		879AE4F61A318D3200F46E09 /* CostCalcProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */; };
-		879AE4F71A318D3200F46E09 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4F11A318D3200F46E09 /* Extension.swift */; };
 		87A1F16E1A31AA0300C65BD4 /* SimpleCostCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8704EB401A359EAF009EEA1C /* Geometries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometries.swift; sourceTree = "<group>"; };
 		879AE4771A309C9200F46E09 /* TheOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879AE47B1A309C9200F46E09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		879AE47C1A309C9200F46E09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		879AE4EE1A318D3200F46E09 /* RouteData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
 		879AE4EF1A318D3200F46E09 /* RouteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteManager.swift; sourceTree = "<group>"; };
 		879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCalcProtocal.swift; sourceTree = "<group>"; };
-		879AE4F11A318D3200F46E09 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		87A1F16C1A31A76200C65BD4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCostCalc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,10 +140,10 @@
 			children = (
 				879AE4EC1A318D3200F46E09 /* Direction.swift */,
 				879AE4ED1A318D3200F46E09 /* AStarNode.swift */,
+				8704EB401A359EAF009EEA1C /* Geometries.swift */,
 				879AE4EE1A318D3200F46E09 /* RouteData.swift */,
 				879AE4EF1A318D3200F46E09 /* RouteManager.swift */,
 				879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */,
-				879AE4F11A318D3200F46E09 /* Extension.swift */,
 				87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */,
 			);
 			name = PathFinder;
@@ -198,6 +198,7 @@
 				TargetAttributes = {
 					879AE4761A309C9200F46E09 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = LDJ2EKQRTJ;
 					};
 					879AE48F1A309C9200F46E09 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -259,7 +260,7 @@
 				879AE4F21A318D3200F46E09 /* Direction.swift in Sources */,
 				879AE4F51A318D3200F46E09 /* RouteManager.swift in Sources */,
 				879AE4F41A318D3200F46E09 /* RouteData.swift in Sources */,
-				879AE4F71A318D3200F46E09 /* Extension.swift in Sources */,
+				8704EB411A359EAF009EEA1C /* Geometries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,9 +383,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TheOne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -392,9 +397,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TheOne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
