@@ -21,9 +21,9 @@ public class SimpleCostCalc : CostCalcProtocal {
             cost += 0
         }
         
-//        if(currentNode.previousNode != nil) {
-//            cost += Int(currentNode.previousNode!.costG.value)
-//        }
+        if(currentNode.previousNode != nil) {
+            cost += Int(currentNode.previousNode!.costG.value)
+        }
         
         return cost
     }
