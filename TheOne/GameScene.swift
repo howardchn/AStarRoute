@@ -12,16 +12,16 @@ class GameScene: SKScene {
     var route : RouteManager!
     
     override func didMoveToView(view: SKView) {
-        let cellSize = 40
-        let gap = 5
-        let columnCount = Int(frame.width) / (cellSize + gap) + 1
-        let rowCount = Int(frame.height) / (cellSize + gap) + 1
+        let cellSize = 60
+        let gap = 15
+        let columnCount = Int(frame.width) / (cellSize + gap)
+        let rowCount = Int(frame.height) / (cellSize + gap)
         route = RouteManager(column: columnCount, row: rowCount)
     
-        for rowIndex in 0...rowCount {
-            for columnIndex in 0...columnCount {
-                let left = columnIndex * (cellSize + gap)
-                let top = rowIndex * (cellSize + gap) + 100
+        for rowIndex in 0...(rowCount - 1) {
+            for columnIndex in 0...(columnCount - 1) {
+                let left = columnIndex * (cellSize + gap) + 10
+                let top = rowIndex * (cellSize + gap) + 60
                 let cell = RouteCell(rect: CGRect(x: 0, y:0, width: cellSize, height: cellSize))
                 let name = "\(rowIndex)_\(columnIndex)"
                 cell.position = CGPoint(x: left, y: top)
@@ -30,7 +30,11 @@ class GameScene: SKScene {
                 cell.rowIndex = rowIndex
                 cell.columnIndex = columnIndex
                 addChild(cell)
+                
+                return
             }
+            
+            return
         }
     }
     

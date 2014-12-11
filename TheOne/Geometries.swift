@@ -26,7 +26,7 @@ public struct RectInt {
     }
 }
 
-public struct PointInt {
+public struct PointInt : Equatable {
     public var x : Int
     public var y : Int
     
@@ -65,4 +65,8 @@ public struct PointInt {
         
         return PointInt(x: newX, y: newY)
     }
+}
+
+public func == (a: PointInt, b: PointInt) -> Bool {
+    return a.x == b.x && a.y == b.y
 }

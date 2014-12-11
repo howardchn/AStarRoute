@@ -11,28 +11,15 @@ import SpriteKit
 
 public class RouteManager {
     public init(column : Int, row : Int) {
-        var matrix = [[Bool]]()
-        
-        for var r : Int = 0; r <= row; r++ {
-            var oneRow = [Bool]()
-            for var c : Int = 0; c <= column; c++ {
-                oneRow.append(false)
-            }
-            
-            matrix.append(oneRow)
-        }
-        
-        self.matrix = matrix
-        self.costCalc = SimpleCostCalc()
+        self.matrix = [[Bool]](count: row, repeatedValue: [Bool](count: column, repeatedValue: false))
     }
     
     public required init (matrix : [[Bool]]) {
         self.matrix = matrix
-        self.costCalc = SimpleCostCalc()
     }
     
     public var matrix : [[Bool]]
-    public var costCalc : CostCalcProtocal!;
+    public var costCalculator : SimpleCostCalculator = SimpleCostCalculator()
     
     public func route(start : PointInt, destination : PointInt) -> [PointInt]? {
         let map = RectInt(x: 0, y: 0, width: matrix[0].count, height: matrix.count)
@@ -49,8 +36,6 @@ public class RouteManager {
     }
     
     func routeCore (routeData : RouteData, currentNode : AStarNode) -> [PointInt]? {
-        
-        let start = NSDate()
         for direction in routeData.directions {
             let nextLocation = currentNode.location.getAdjecentPoint(direction)
             
@@ -62,8 +47,8 @@ public class RouteManager {
                 continue
             }
             
-            let costG = costCalc.getCostG(currentNode, direction: direction)
-            let costH = costCalc.getCostH(nextLocation, destination: routeData.destination)
+            let costG = costCalculator.getCostG(currentNode, direction: direction)
+            let costH = costCalculator.getCostH(nextLocation, destination: routeData.destination)
             
             if costH == 0 {
                 var result = [PointInt]()
@@ -92,11 +77,10 @@ public class RouteManager {
         }
         
         
-        let currentNodeIndex = indexAt(routeData.openedNodes, item: currentNode)
+        let currentNodeIndex = indexOf(routeData.openedNodes, item: currentNode)
         routeData.openedNodes.removeAtIndex(currentNodeIndex)
         routeData.closedNodes.append(currentNode)
         
-        println(routeData.openedNodes.count)
         let minimumCostNode = getMinimumCostNode(routeData)
         if minimumCostNode == nil {
             return nil   
@@ -105,30 +89,29 @@ public class RouteManager {
     }
     
     func getMinimumCostNode(routeData : RouteData) -> AStarNode? {
-        var node : AStarNode? = nil
         if(routeData.openedNodes.count != 0) {
+            var node : AStarNode = routeData.openedNodes.first!
             for n in routeData.openedNodes {
-                if node == nil {
-                    node = n
-                }
-                else if node?.costF > n.costF {
+                if node.costF > n.costF {
                     node = n
                 }
             }
+            
+            return node
         }
         
-        return node
+        return nil
     }
     
     func getNodeOnLocation (location:PointInt, routeData : RouteData) -> AStarNode? {
         for node in routeData.openedNodes {
-            if node.location.x == location.x && node.location.y == location.y {
-                return node;
+            if node.location == location {
+                return node
             }
         }
         
         for node in routeData.closedNodes {
-            if node.location.x == location.x && node.location.y == location.y {
+            if node.location == location {
                 return node
             }
         }
@@ -136,7 +119,7 @@ public class RouteManager {
         return nil
     }
     
-    func indexAt (items : [AStarNode], item : AStarNode) -> Int {
+    func indexOf (items : [AStarNode], item : AStarNode) -> Int {
         var result = -1
         for var index = 0; index < items.count; index++ {
             if items[index] === item {

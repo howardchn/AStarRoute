@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-public protocol CostCalcProtocal {
+public protocol CostCalculatorProtocol {
     func getCostG (currentNode : AStarNode, direction : Direction) -> Int
     func getCostH (nextNode : PointInt, destination : PointInt) -> Int
 }

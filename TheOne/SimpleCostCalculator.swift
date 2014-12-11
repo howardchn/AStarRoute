@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-public class SimpleCostCalc : CostCalcProtocal {
+public class SimpleCostCalculator : CostCalculatorProtocol {
     public func getCostG (currentNode : AStarNode, direction : Direction) -> Int {
         var cost : Int = 0
         switch direction {

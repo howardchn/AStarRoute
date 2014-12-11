@@ -20,8 +20,8 @@
 		879AE4F31A318D3200F46E09 /* AStarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4ED1A318D3200F46E09 /* AStarNode.swift */; };
 		879AE4F41A318D3200F46E09 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4EE1A318D3200F46E09 /* RouteData.swift */; };
 		879AE4F51A318D3200F46E09 /* RouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4EF1A318D3200F46E09 /* RouteManager.swift */; };
-		879AE4F61A318D3200F46E09 /* CostCalcProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */; };
-		87A1F16E1A31AA0300C65BD4 /* SimpleCostCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */; };
+		879AE4F61A318D3200F46E09 /* CostCalculatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879AE4F01A318D3200F46E09 /* CostCalculatorProtocol.swift */; };
+		87A1F16E1A31AA0300C65BD4 /* SimpleCostCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A1F16D1A31AA0300C65BD4 /* SimpleCostCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +52,9 @@
 		879AE4ED1A318D3200F46E09 /* AStarNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStarNode.swift; sourceTree = "<group>"; };
 		879AE4EE1A318D3200F46E09 /* RouteData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
 		879AE4EF1A318D3200F46E09 /* RouteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteManager.swift; sourceTree = "<group>"; };
-		879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCalcProtocal.swift; sourceTree = "<group>"; };
+		879AE4F01A318D3200F46E09 /* CostCalculatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCalculatorProtocol.swift; sourceTree = "<group>"; };
 		87A1F16C1A31A76200C65BD4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCostCalc.swift; sourceTree = "<group>"; };
+		87A1F16D1A31AA0300C65BD4 /* SimpleCostCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCostCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +143,8 @@
 				8704EB401A359EAF009EEA1C /* Geometries.swift */,
 				879AE4EE1A318D3200F46E09 /* RouteData.swift */,
 				879AE4EF1A318D3200F46E09 /* RouteManager.swift */,
-				879AE4F01A318D3200F46E09 /* CostCalcProtocal.swift */,
-				87A1F16D1A31AA0300C65BD4 /* SimpleCostCalc.swift */,
+				879AE4F01A318D3200F46E09 /* CostCalculatorProtocol.swift */,
+				87A1F16D1A31AA0300C65BD4 /* SimpleCostCalculator.swift */,
 			);
 			name = PathFinder;
 			sourceTree = "<group>";
@@ -252,9 +252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				879AE4811A309C9200F46E09 /* GameScene.swift in Sources */,
-				879AE4F61A318D3200F46E09 /* CostCalcProtocal.swift in Sources */,
+				879AE4F61A318D3200F46E09 /* CostCalculatorProtocol.swift in Sources */,
 				879AE4831A309C9200F46E09 /* GameViewController.swift in Sources */,
-				87A1F16E1A31AA0300C65BD4 /* SimpleCostCalc.swift in Sources */,
+				87A1F16E1A31AA0300C65BD4 /* SimpleCostCalculator.swift in Sources */,
 				879AE47D1A309C9200F46E09 /* AppDelegate.swift in Sources */,
 				879AE4F31A318D3200F46E09 /* AStarNode.swift in Sources */,
 				879AE4F21A318D3200F46E09 /* Direction.swift in Sources */,
@@ -374,6 +374,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -401,7 +402,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TheOne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
