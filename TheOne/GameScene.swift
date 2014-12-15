@@ -12,29 +12,25 @@ class GameScene: SKScene {
     var route : RouteManager!
     
     override func didMoveToView(view: SKView) {
-        let cellSize = 60
-        let gap = 15
+        let cellSize = 40
+        let gap = 5
         let columnCount = Int(frame.width) / (cellSize + gap)
         let rowCount = Int(frame.height) / (cellSize + gap)
         route = RouteManager(column: columnCount, row: rowCount)
     
-        for rowIndex in 0...(rowCount - 1) {
-            for columnIndex in 0...(columnCount - 1) {
-                let left = columnIndex * (cellSize + gap) + 10
-                let top = rowIndex * (cellSize + gap) + 60
-                let cell = RouteCell(rect: CGRect(x: 0, y:0, width: cellSize, height: cellSize))
-                let name = "\(rowIndex)_\(columnIndex)"
+        for rowIndex in 0...(rowCount) {
+            for columnIndex in 0...(columnCount) {
+                let left = columnIndex * (cellSize + gap)
+                let top = rowIndex * (cellSize + gap)
+                let cell = RouteCell(color: UIColor.whiteColor(), size: CGSizeMake(CGFloat(cellSize), CGFloat(cellSize)))
+                cell.anchorPoint = CGPointMake(0, 0)
                 cell.position = CGPoint(x: left, y: top)
-                cell.fillColor = UIColor.whiteColor()
-                cell.name = name
+                cell.color = UIColor.whiteColor()
+                cell.name = "\(rowIndex)_\(columnIndex)"
                 cell.rowIndex = rowIndex
                 cell.columnIndex = columnIndex
                 addChild(cell)
-                
-                return
             }
-            
-            return
         }
     }
     
@@ -106,20 +102,8 @@ class GameScene: SKScene {
         case normal = 0, block, start, destination, stop
     }
     
-    class RouteCell : SKShapeNode {
+    class RouteCell : SKSpriteNode {
         private var _cellType = CellType.normal
-        
-        init(rect : CGRect) {
-            super.init()
-            self.path = CGPathCreateWithRect(rect, nil)
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-            
-            var rect = CGRect(x: 0, y: 0, width: 40, height: 40)
-            self.path = CGPathCreateWithRect(rect, nil)
-        }
         
         var rowIndex : Int = 0
         var columnIndex : Int = 0
@@ -131,15 +115,15 @@ class GameScene: SKScene {
                 _cellType = newCellType
                 switch _cellType {
                 case .normal:
-                    fillColor = UIColor.whiteColor()
+                    self.color = UIColor.whiteColor()
                 case .block:
-                    fillColor = UIColor.redColor()
+                    self.color = UIColor.redColor()
                 case .start:
-                    fillColor = UIColor.blueColor()
+                    self.color = UIColor.blueColor()
                 case .destination:
-                    fillColor = UIColor.yellowColor()
+                    self.color = UIColor.yellowColor()
                 case .stop:
-                    fillColor = UIColor.greenColor()
+                    self.color = UIColor.greenColor()
                 default:
                     println("Unknown cell type.")
                 }
