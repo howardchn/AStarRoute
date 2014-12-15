@@ -27,7 +27,7 @@ class GameScene: SKScene {
                 cell.position = CGPoint(x: left, y: top)
                 cell.color = UIColor.whiteColor()
                 cell.name = "\(rowIndex)_\(columnIndex)"
-                cell.rowIndex = rowIndex;
+                cell.rowIndex = rowIndex
                 cell.columnIndex = columnIndex
                 addChild(cell)
             }
